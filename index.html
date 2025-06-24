@@ -90,7 +90,121 @@
       <tr><td>$10 000 000</td><td>Метавселенная $NOFACE</td></tr>
     </table>
   </section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NoFace Telegram</title>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
+    .smoke-button {
+      position: relative;
+      background-color: #000;
+      color: white;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 10px;
+      font-size: 20px;
+      font-family: 'Arial Black', sans-serif;
+      cursor: pointer;
+      overflow: hidden;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 0 10px #b10000;
+    }
+
+    .smoke-button:hover {
+      background-color: #b10000;
+    }
+
+    .effect {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .smoke {
+      background: rgba(255, 255, 255, 0.4);
+      animation: smoke-rise 1.2s ease-out forwards;
+    }
+
+    .ash {
+      background: rgba(255, 0, 0, 0.5);
+      animation: ash-fall 1.5s ease-out forwards;
+    }
+
+    @keyframes smoke-rise {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -150%) scale(4);
+      }
+    }
+
+    @keyframes ash-fall {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-100%, 150%) scale(2);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="https://t.me/deadnetimpery" target="_blank">
+    <button class="smoke-button" onclick="triggerEffects(event)">NoFace 🔥 Telegram</button>
+  </a>
+
+  <audio id="whisper" src="https://cdn.pixabay.com/audio/2022/08/09/audio_54bbf60379.mp3"></audio>
+
+  <script>
+    function triggerEffects(e) {
+      const btn = e.currentTarget;
+      playWhisper();
+
+      for (let i = 0; i < 5; i++) {
+        const smoke = document.createElement('div');
+        smoke.classList.add('effect', 'smoke');
+        smoke.style.left = `${Math.random() * 100}%`;
+        btn.appendChild(smoke);
+
+        setTimeout(() => smoke.remove(), 1200);
+
+        const ash = document.createElement('div');
+        ash.classList.add('effect', 'ash');
+        ash.style.left = `${Math.random() * 100}%`;
+        btn.appendChild(ash);
+
+        setTimeout(() => ash.remove(), 1500);
+      }
+    }
+
+    function playWhisper() {
+      const whisper = document.getElementById("whisper");
+      whisper.currentTime = 0;
+      whisper.play();
+    }
+  </script>
+
+</body>
+</html>
   <section class="images">
     <h2>🎨 Визуал проекта</h2>
     <img src="https://chat.openai.com/cdn-cgi/imagedelivery/XYZ/4of5.jpg/public" alt="NoFace Visual" />
